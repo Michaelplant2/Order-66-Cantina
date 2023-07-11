@@ -8,7 +8,7 @@ class Consumable(models.Model):
         (DRINK, 'Drink'),
     ]
     name = models.CharField(max_length=100)
-    price = models.IntegerField()
+    price = models.DecimalField(max_digits=5, decimal_places=2)
     description = models.TextField()
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/')
     cuisine_type = models.CharField(max_length=2, choices=CUISINE_TYPE)
