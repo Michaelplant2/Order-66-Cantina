@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Custom -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-
+    <!-- Nav -->
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}" />
+    
     <title>Order 66 Cantina {% block title %}{% endblock %}</title>
   </head>
   <body>
-    <!-- Top Bar-->
-    {% include 'partials/_topbar.html' %}
     <!-- Nav Bar-->
     {% include 'partials/_navbar.html' %}
-        <!-- Main Content-->
+    <!-- Main Content-->
     {% block content %} {% endblock %}
-    
+
     <!-- Footer-->
     {% include 'partials/_footer.html' %}
-    <script src="{% static 'js/' %} "></script>
+    <script src="{% static 'js/scripts.js' %} "></script>
   </body>
 </html>
