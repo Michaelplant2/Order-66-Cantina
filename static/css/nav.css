@@ -2,6 +2,7 @@
    background-image: url(/cantina/static/img/Tatooine-Star-Wars.avif);
    background-size: cover;
    background-position: center;
+   border-bottom: 4px solid black;
 }
 
 .color {

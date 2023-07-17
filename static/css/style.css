@@ -28,5 +28,21 @@ img {
 }
 
 .banner-section .color {
+   display: flex;
+   justify-content: center;
+   align-items: center;
    background-color: rgba(0, 0, 0, 70%);
+}
+
+.banner-info {
+   color: papayawhip;
+   text-align: center;
+}
+
+.banner-info h3 {
+   font-size: 15px;
+}
+
+.banner-info h1 {
+   font-size: 25px;
 }
