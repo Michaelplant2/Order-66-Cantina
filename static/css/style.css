@@ -1,0 +1,32 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   text-decoration: none;
+   font-family: sans-serif;
+   list-style: none;
+}
+
+body {
+   height: 100vh;
+   width: 100%;
+}
+
+.container {
+   margin: 0 5%;
+}
+
+img {
+   width: 200px;
+}
+
+.banner-section {
+   background-image: url(/cantina/static/img/tatooine-kjbbfxhxnxb1j8p5.jpg);
+   background-size: cover;
+   background-position: center;
+   height: 60%;
+}
+
+.banner-section .color {
+   background-color: rgba(0, 0, 0, 70%);
+}
