@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% load humanize %} {% block title %} | Browse Menu Items 
+{% endblock %} {% block content %}
+
+<section class="banner-section">
+   <video width="320" height="240" class="video" autoplay loop muted>
+     <source src="/cantina/static/img/Star wars_ A new hope - bar scene (720p).mp4" type="video/mp4">
+     <source src="/cantina/static/img/tatooine-kjbbfxhxnxb1j8p5.jpg" type="image">
+     Your browser does not support the video tag.
+   </video>
+   <div class="color">
+   <div class="container">
+     <div class="banner-info">
+       <h3>Eatery &amp; Cantina</h3>
+       <h1>
+         Our mission is to provide the galaxy with an exceptional experience.
+       </h1>
+     </div>
+   </div>
+   </div>
+ </section>
+
+<!-- Menu -->
+<section class="menu-section">
+   <div class="container">
+     <div class="menu-inner">
+       <div class="menu-banner">
+         <h2>Recently Added</h2>
+         <h4>Drinks &amp; Food</h4>
+       </div>
+       <div class="menu">
+      {% for consumable in consumables %}
+         {% if consumable.cuisine_type == "FD" %}
+            <div class="item">
+               <img class="menu-img" src="{{consumable.photo_main.url}}" alt="{{ consumable.name }}" />
+               <div class="menu-body">
+                  <h4>{{ consumable.name }}</h4>
+                  <hr />
+                  <a href="{% url 'consumable' consumable.id %}">More Info</a>
+               </div>
+               </div>
+            {% endif %}
+         {% endfor %}
+       </div>
+     </div>
+   </div>
+
+   <div class="">
+     <div class="">
+       {% if consumables.has_other_pages %}
+         <ul class="pagination">
+           {% if consumables.has_previous %}
+             <li class="page-item">
+               <a href="?page={{consumables.previous_page_number}}" class="page-link"
+                 >&laquo;</a
+               >
+             </li>
+           {% else %}
+             <li class="page-item disabled">
+               <a class="page-link">&laquo;</a>
+             </li>
+           {% endif %} 
+           {% for i in consumables.paginator.page_range %} 
+           {% if consumables.number == i %}
+             <li class="page-item active">
+               <a class="page-link">{{i}}</a>
+             </li>
+           {% else %}
+             <li class="page-item">
+               <a href="?page={{i}}" class="page-link">{{i}}</a>
+             </li>
+           {% endif %} 
+           {% endfor %} 
+           {% if consumables.has_next %}
+             <li class="page-item">
+               <a href="?page={{consumables.next_page_number}}" class="page-link"
+                 >&raquo;</a
+               >
+             </li>
+           {% else %}
+             <li class="page-item disabled">
+               <a class="page-link">&raquo;</a>
+             </li>
+           {% endif %}
+         </ul>
+       {% endif %}
+     </div>
+   </div>
+</section>
+{% endblock %}

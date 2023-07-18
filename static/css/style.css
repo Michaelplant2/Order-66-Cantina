@@ -84,7 +84,7 @@ hr {
 /* Team */
 
 .team-section {
-   margin-top: 20px;
+   margin: 2% 0;
    padding: 10px 0;
 }
 
@@ -127,6 +127,7 @@ hr {
    display: flex;
    justify-content: space-evenly;
    align-items: flex-end;
+   margin: 2% 0;
 }
 
 .item {
@@ -138,6 +139,22 @@ hr {
    border: 1px solid;
    width: 150px;
    height: 220px;
+}
+
+.menu-img {
+   width: 130px;
+   height: 140px;
+   margin: auto;
+}
+
+.menu-body {
+   margin-top: 10px;
+   text-align: center;
+}
+
+.menu-body h4 {
+   font-size: 18px;
+   margin-bottom: 2px;
 }
 
 .menu-body a {
