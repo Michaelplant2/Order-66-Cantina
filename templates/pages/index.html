@@ -2,6 +2,11 @@
 {% endblock %} {% block content %}
 <!-- BANNER -->
 <section class="banner-section">
+  <video width="320" height="240" class="video" autoplay loop muted>
+    <source src="/cantina/static/img/Star wars_ A new hope - bar scene (720p).mp4" type="video/mp4">
+    <source src="/cantina/static/img/tatooine-kjbbfxhxnxb1j8p5.jpg" type="image">
+    Your browser does not support the video tag.
+  </video>
   <div class="color">
   <div class="container">
     <div class="banner-info">
@@ -17,24 +22,6 @@
 <!-- Alerts -->
 {% include 'partials/_alerts.html' %}
 
-<!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="container">
-    <div class="about-info">
-      <div class="about-title">
-        <h4>Read our story</h4>
-        <h2>We've been Making The Delicious Foods Since 1977</h2>
-      </div>
-      <div class="about-p">
-        <p></p>
-      </div>
-      <div>
-        <img src="" class="about-img" alt="" />
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- TEAM -->
 <section class="team-section">
   <div class="container">
@@ -43,31 +30,47 @@
         <h2>Meet our Servers</h2>
         <h4>They are professional &amp; mostly friendly</h4>
       </div>
-      <section id="team" class="">
-        <div class="container">
-          <h2 class="">Our Team</h2>
-          <div class="">
-            {% if servers %} {% for server in servers %}
-            <div class="">
-              <img src="{{ server.photo.url }}" alt="" class="" />
-              <h4>{{ server.name }}</h4>
-              <p class="">Server</p>
-              <hr />
-              <p>{{ server.description }}</p>
-            </div>
-            {% endfor %} {% else %}
-            <div class="">
-              <p>No Realtors Available</p>
-            </div>
-            {% endif %}
+      <section id="team">
+        <div class="team">
+          {% if servers %} {% for server in servers %}
+          <div class="team-card">
+            <img src="{{ server.photo.url }}" alt="{{ server.name }}" class="team-img" />
+            <h4>{{ server.name }}</h4>
+            <p>{{ server.description }}</p>
           </div>
+          {% endfor %} {% else %}
+          <div class="">
+            <p>No Realtors Available</p>
+          </div>
+          {% endif %}
         </div>
       </section>
     </div>
   </div>
 </section>
 
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-info">
+      <div class="about-words">
+        <div class="about-title">
+          <h4>Read our story</h4>
+          <h2>We've been Making Delicious Food Since 1977</h2>
+        </div>
+        <div class="about-p">
+          <p>The cantina is a dimly-lit tavern known for its strong drinks, hot tunes, and occasional outbreaks of shocking violence. Most star pilots visiting Tatooine spend their downtime in the cantina, making it an ideal spot to hire a starship's crew.</p>
+        </div>
+      </div>
+      <div>
+        <img src="/cantina/static/img/Ogas_Cantina_0820ZR_0275DR-1024x683.jpg" class="about-img" alt="Inside Cantina" />
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MENU -->
+<hr>
 <section class="menu-section">
   <div class="container">
     <div class="menu-inner">
@@ -75,21 +78,15 @@
         <h2>Our Menu</h2>
         <h4>Drinks &amp; Food</h4>
       </div>
-      <div class="consumable-col">
+      <div class="menu">
         {% if consumables %} {% for consumable in consumables %}
-        <div class="">
-          <div class="">
-            <img class="card-img" src="{{consumable.photo_main.url}}" alt="" />
-            <div class="card-body">
-              <div class="">
-                <h4 class="text-primary">{{ consumable.name }}</h4>
-              </div>
+        <div class="item">
+            <img class="menu-img" src="{{consumable.photo_main.url}}" alt="{{ consumable.name }}" />
+            <div class="menu-body">
+              <h4>{{ consumable.name }}</h4>
               <hr />
-              <a href="{% url 'consumable' consumable.id %}" class=""
-                >More Info</a
-              >
+              <a href="{% url 'consumable' consumable.id %}">More Info</a>
             </div>
-          </div>
         </div>
         {% endfor %} {% else %}
         <div class="">

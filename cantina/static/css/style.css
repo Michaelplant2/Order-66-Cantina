@@ -5,6 +5,7 @@
    text-decoration: none;
    font-family: sans-serif;
    list-style: none;
+   scroll-behavior: smooth;
 }
 
 body {
@@ -17,14 +18,28 @@ body {
 }
 
 img {
-   width: 200px;
+   width: 100px;
 }
 
+hr {
+   width: 85%;
+   margin: auto;
+}
+
+/* Banner */
+
 .banner-section {
-   background-image: url(/cantina/static/img/tatooine-kjbbfxhxnxb1j8p5.jpg);
-   background-size: cover;
-   background-position: center;
-   height: 60%;
+   position: relative;
+   height: 55%;
+   margin-top: 116px;
+}
+
+.video{
+   position: absolute;
+   object-fit: cover;
+   height: 100%;
+   width: 100%;
+   z-index: -1;
 }
 
 .banner-section .color {
@@ -45,4 +60,86 @@ img {
 
 .banner-info h1 {
    font-size: 25px;
+}
+
+/* About */
+
+.about-info {
+   display: flex;
+   align-items: center;
+   gap: 150px;
+   margin: 20px 0;
+}
+
+.about-title {
+   margin-bottom: 20px;
+}
+
+.about-img {
+   width: 400px;
+   height: 240px;
+   border-radius: 10px;
+}
+
+/* Team */
+
+.team-section {
+   margin-top: 20px;
+   padding: 10px 0;
+}
+
+.team-banner {
+   text-align: center;
+   margin-bottom: 5px;
+}
+
+.team {
+   display: flex;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+}
+
+.team-card {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 350px;
+   border: 1px solid black;
+   border-radius: 10px;
+   padding: 5px;
+   background-color: white;
+}
+
+.team-card h4 {
+   font-size: 18px;
+   margin: 5px 0;
+}
+
+/* Menu */
+
+.menu-banner {
+   text-align: center;
+   margin: 10px 0;
+}
+
+.menu {
+   display: flex;
+   justify-content: space-evenly;
+   align-items: flex-end;
+}
+
+.item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-end;
+   padding: 5px;
+   border: 1px solid;
+   width: 150px;
+   height: 220px;
+}
+
+.menu-body a {
+   color: black;
 }
