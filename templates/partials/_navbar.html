@@ -20,13 +20,13 @@
             {% else %}
               class=""
             {% endif %}>
-            <a class="nav-link" href=""> Welcome {{ user.username }} (Dashboard)</a>
+            <a class="nav-link" href="{% url 'dashboard' %}"> Welcome {{ user.username }} (Dashboard)</a>
             </li>
 
             <li class="">
               <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
                 Logout</a>
-              <form action="" method="POST" id="logout">
+              <form action="{% url 'logout' %}" method="POST" id="logout">
                 {% csrf_token %}
                 <input type="hidden">
               </form>
@@ -39,7 +39,7 @@
             {% else %}
               class=""
             {% endif %}>
-            <a class="nav-link" href="">Register</a>
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
             </li>
 
             <li
@@ -48,7 +48,7 @@
             {% else %}
               class=""
             {% endif %}>
-              <a class="nav-link" href="">Login</a>
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
             </li>
           {% endif %}  
         </ul>

@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% load humanize %} {% block title %} | 
+{{ consumable.title }} {% endblock %} {% block content %}
+
+<section class="menu-section item-section">
+   <div class="container">
+     <div class="menu-inner">
+      <div class="item-banner">
+         <h4>{{ consumable.name }}</h4>
+      </div>
+      <div class="item-card">
+         <div class="item-img">
+           <img
+             src="{{consumable.photo_main.url}}"
+             alt="{{ consumable.name }}"/>
+         </div>
+         <div class="descript">
+            <h3>Description</h3>
+            <p>{{ consumable.description }}</p>
+         </div>
+      </div>
+      <div class="fav-me">
+           <hr />
+           <a href="{% url 'consumable' consumable.id %}">Favorite Me</a>
+      </div>
+     </div>
+   </div>
+ </section>
+
+{% endblock %}

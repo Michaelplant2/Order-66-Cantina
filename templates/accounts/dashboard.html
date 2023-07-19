@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block title %} | 
+User Dashboard {% endblock %} 
+
+{% block content %}
+
+<section class="menu-banner-section">
+  <div class="container">
+     <div class="menu-banner-info">
+        <h3>Order 66 Cantina Menu</h3>
+        <h1>
+         Our selection of food &amp; drinks are out of this world!
+        </h1>
+     </div>
+  </div>
+</section>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+
+<section id="dashboard" class="py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Welcome {{ user.username.capitalize }}</h2>
+        {% if contacts %}
+        <p>Here are the property listings that you have inquired about</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Property</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for contact in contacts %}
+            <tr>
+              <td>{{ contact.id }}</td>
+              <td>{{ contact.listing }}</td>
+              <td>
+                <a
+                  class="btn btn-light"
+                  href="{% url 'listing' contact.listing_id %}"
+                  >View Listing</a
+                >
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <p>You have not made any inquiries</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
