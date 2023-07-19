@@ -215,7 +215,7 @@ hr {
    padding-top: 10px;
 }
 
-/* Register */
+/* Register, Login */
 
 .register-section,
 .login-section {
@@ -254,9 +254,6 @@ hr {
    padding: 10px 15px;
    border-radius: 20px;
 }
-
-/* Login */
-
 
 /* Dashboard */
 
