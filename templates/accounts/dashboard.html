@@ -6,10 +6,8 @@ User Dashboard {% endblock %}
 <section class="menu-banner-section">
   <div class="container">
      <div class="menu-banner-info">
-        <h3>Order 66 Cantina Menu</h3>
-        <h1>
-         Our selection of food &amp; drinks are out of this world!
-        </h1>
+        <h4>Dashboard</h4>
+        <h1>Welcome {{ user.username.capitalize }}</h1>
      </div>
   </div>
 </section>
@@ -17,40 +15,27 @@ User Dashboard {% endblock %}
 <!-- Alerts -->
 {% include 'partials/_alerts.html' %}
 
-<section id="dashboard" class="py-4">
+<section id="dashboard" class="dash">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Welcome {{ user.username.capitalize }}</h2>
-        {% if contacts %}
-        <p>Here are the property listings that you have inquired about</p>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Property</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for contact in contacts %}
-            <tr>
-              <td>{{ contact.id }}</td>
-              <td>{{ contact.listing }}</td>
-              <td>
-                <a
-                  class="btn btn-light"
-                  href="{% url 'listing' contact.listing_id %}"
-                  >View Listing</a
-                >
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-        {% else %}
-        <p>You do not have any favorites</p>
-        {% endif %}
+    <div class="dash-table">
+      <div class="dash-header">
+        <h2>Your favorite items</h2>
+      </div>
+      <div class="vertical"></div>
+      <div class="dash-header">
+        <h2>Make a menu suggestion</h2>
+        <form action="{% url 'suggestion' %}" method="POST">
+          {% csrf_token %}
+          <div class="sug-form">
+            <label for="name" class="sug-label">Name of Item:</label>
+            <input type="text" name="name" class="form-control" required/>
+          </div>
+          <div class="sug-form">
+            <label for="description" class="sug-label">Description of Item:</label>
+            <textarea type="text" name="description" class="form-control" required></textarea>
+          </div>
+          <input type="submit" value="Send" class="sug-btn"/>
+        </form>
       </div>
     </div>
   </div>

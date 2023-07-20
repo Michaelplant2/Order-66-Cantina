@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from consumables.models import Consumable
+from suggestion.models import Suggestion
 
 def register(request):
     if request.method == 'POST':

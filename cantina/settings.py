@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'consumables.apps.ConsumablesConfig',
     'servers.apps.ServersConfig',
     'accounts.apps.AccountsConfig',
+    'suggestion.apps.SuggestionConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -126,6 +127,13 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'cantina/static')
 ]
+
+# Messages
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
