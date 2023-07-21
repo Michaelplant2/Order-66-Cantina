@@ -20,6 +20,17 @@ User Dashboard {% endblock %}
     <div class="dash-table">
       <div class="dash-header">
         <h2>Your favorite items</h2>
+        <div class="fav-item">
+          {% if favorites %}
+            {% for favorite in favorites %}
+            <h4>Name:<a href="{% url 'consumable' favorite.consumable_id %}">Consumable</a></h4>
+            <p>$15.99</p>
+            <button>X</button>
+            {% endfor %}
+          {% else %}
+            <p>You don't have any favorites</p>
+          {% endif %}
+        </div>
       </div>
       <div class="vertical"></div>
       <div class="dash-header">

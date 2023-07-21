@@ -401,10 +401,29 @@ hr {
 
 .dash-header h2 {
    text-decoration: underline;
+   text-align: center;
+   margin-bottom: 10px;
 }
 
 .dash-header form {
    text-align: end;
+}
+
+.fav-item {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.fav-item h4 {
+
+}
+
+.fav-item button {
+   background-color: black;
+   color: papayawhip;
+   padding: 2px 2px;
+   border-radius: 10px;
 }
 
 .sug-form {

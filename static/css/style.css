@@ -392,9 +392,36 @@ hr {
 
 .dash-table {
    display: flex;
-   justify-content: space-around;
+   justify-content: space-evenly;
 }
 
-.dash-header {
+.vertical {
+   border: 1px solid black;
+}
+
+.dash-header h2 {
    text-decoration: underline;
+   margin-bottom: 10px;
+}
+
+.dash-header form {
+   text-align: end;
+}
+
+.dash-header div {
+   display: flex;
+}
+
+.sug-form {
+   margin: 10px 0;
+   font-size: 18px;
+}
+
+.sug-btn {
+   margin-right: 30px;
+   background-color: black;
+   color: papayawhip;
+   margin-top: 5px;
+   padding: 10px 15px;
+   border-radius: 20px;
 }

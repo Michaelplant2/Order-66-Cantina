@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'servers.apps.ServersConfig',
     'accounts.apps.AccountsConfig',
     'suggestion.apps.SuggestionConfig',
+    'favorites.apps.FavoritesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

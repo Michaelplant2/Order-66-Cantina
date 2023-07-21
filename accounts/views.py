@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
-from consumables.models import Consumable
-from suggestion.models import Suggestion
+from favorites.models import Favorite
 
 def register(request):
     if request.method == 'POST':
@@ -62,9 +61,9 @@ def logout(request):
         return redirect('index')
 
 def dashboard(request):
-    fav_consumables = Consumable.objects.order_by('-id').filter(is_published=True)
+    fav_consumables = Favorite.objects.order_by('-id')
 
     context = {
-        'consumables' :fav_consumables
+        'favorites' :fav_consumables
     }
     return render(request, 'accounts/dashboard.html', context)
