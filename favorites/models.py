@@ -1,9 +1,9 @@
 from django.db import models
+from django.conf import settings
+from consumables.models import Consumable
 
 class Favorite(models.Model):
-    consumable_id = models.IntegerField()
-    name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
-    user_id = models.IntegerField(blank=True)
+    consumable_id = models.ForeignKey(Consumable, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     def __str__(self):
         return self.name

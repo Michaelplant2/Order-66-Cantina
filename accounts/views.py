@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from favorites.models import Favorite
+from consumables.models import Consumable
 
 def register(request):
     if request.method == 'POST':
@@ -62,6 +63,10 @@ def logout(request):
 
 def dashboard(request):
     fav_consumables = Favorite.objects.order_by('-id')
+    favorite_consumables = []
+
+    for fav in fav_consumables:
+        favorite_consumables.append(Consumable(id=fav.consumable_id))
 
     context = {
         'favorites' :fav_consumables
