@@ -20,7 +20,7 @@
       </div>
       <div class="fav-me">
            <hr />
-           <a href="{% url 'consumable' consumable.id %}">Favorite Me</a>
+           <a href="/consumables/{{consumable.id}}?favorite=true" id="fav-btn">Favorite Me</a>
       </div>
      </div>
    </div>

@@ -13,6 +13,3 @@ class Consumable(models.Model):
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/')
     cuisine_type = models.CharField(max_length=2, choices=CUISINE_TYPE)
     is_published = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.name

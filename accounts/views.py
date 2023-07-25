@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from favorites.models import Favorite
@@ -62,13 +62,10 @@ def logout(request):
         return redirect('index')
 
 def dashboard(request):
-    fav_consumables = Favorite.objects.order_by('-id')
-    favorite_consumables = []
-
-    for fav in fav_consumables:
-        favorite_consumables.append(Consumable(id=fav.consumable_id))
-
+    fav_consumables = Favorite.objects.order_by('-id').filter(user_id=request.user.id)
+    
     context = {
         'favorites' :fav_consumables
     }
+
     return render(request, 'accounts/dashboard.html', context)

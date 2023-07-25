@@ -23,8 +23,8 @@ User Dashboard {% endblock %}
         <div class="fav-item">
           {% if favorites %}
             {% for favorite in favorites %}
-            <h4>Name:<a href="{% url 'consumable' favorite.consumable_id %}">Consumable</a></h4>
-            <p>$15.99</p>
+            <h4>Name:<a href="{% url 'consumable' favorite.consumable_id.id %}">{{ favorite.consumable_id.name }}</a></h4>
+            <p>${{ favorite.consumable.price }}</p>
             <button>X</button>
             {% endfor %}
           {% else %}
