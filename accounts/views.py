@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from favorites.models import Favorite
-from consumables.models import Consumable
 
 def register(request):
     if request.method == 'POST':
@@ -63,9 +62,14 @@ def logout(request):
 
 def dashboard(request):
     fav_consumables = Favorite.objects.order_by('-id').filter(user_id=request.user.id)
-    
+
     context = {
-        'favorites' :fav_consumables
+        'favorites' : fav_consumables
     }
 
     return render(request, 'accounts/dashboard.html', context)
+
+def delete_fav(request, id):
+    fav = Favorite.objects.get(consumable_id=id)
+    fav.delete()
+    return redirect('dashboard')

@@ -336,12 +336,17 @@ hr {
    text-decoration: underline;
 }
 
-.fav-me,
-.fav-me a {
+.fav-me {
    text-align: center;
-   font-size: 20px;
-   color: black;
-   padding-top: 10px;
+   margin: 2% 0;
+}
+
+.fav-me a {
+   font-size: 18px;
+   background-color: black;
+   color: papayawhip;
+   padding: 10px 15px;
+   border-radius: 20px;
 }
 
 /* Register, Login */
@@ -401,6 +406,7 @@ hr {
 
 .dash-header h2 {
    text-decoration: underline;
+   text-align: center;
    margin-bottom: 10px;
 }
 
@@ -408,8 +414,34 @@ hr {
    text-align: end;
 }
 
-.dash-header div {
+.fav-item div {
    display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: 10px;
+   margin: 5px 0;
+}
+
+.fav-item div h4 {
+   margin-right: auto;
+}
+
+.fav-a {
+   color: black;
+}
+
+.btn-x {
+   background-color: black;
+   color: papayawhip;
+   padding: 1px 3px;
+   border-radius: 20px;
+}
+
+.fav-item button {
+   background-color: black;
+   color: papayawhip;
+   padding: 2px 2px;
+   border-radius: 10px;
 }
 
 .sug-form {

@@ -18,10 +18,14 @@
             <p>{{ consumable.description }}</p>
          </div>
       </div>
+      <hr>
       <div class="fav-me">
-           <hr />
            <a href="/consumables/{{consumable.id}}?favorite=true" id="fav-btn">Favorite Me</a>
       </div>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+
      </div>
    </div>
  </section>

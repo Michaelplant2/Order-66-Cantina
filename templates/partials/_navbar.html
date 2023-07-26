@@ -1,59 +1,59 @@
 <!-- Navbar -->
-<nav id="navbar" class="navbar-main">
+<div id="navbar" class="navbar-main">
   <div class="color">
   <div class="container">
     <div class="navbar">
       <a href="{% url 'index' %}" class="logo">Order 66 Cantina</a>
-      <div class="nav-ul">
-        <ul class="nav">
-          <li><a href="{% url 'index' %}" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="{% url 'consumables' %}" class="nav-link">Menu</a></li>
-          <li><a href="#footer" class="nav-link">Contact</a></li>
-        </ul>
-
-        <ul class="logins">
-          {% if user.is_authenticated %}
-            <li
-            {% if 'dashboard' in request.path %}
-              class=""
-            {% else %}
-              class=""
-            {% endif %}>
-            <a class="nav-link" href="{% url 'dashboard' %}"> Welcome {{ user.username }} (Dashboard)</a>
-            </li>
-
-            <li class="">
-              <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
-                Logout</a>
-              <form action="{% url 'logout' %}" method="POST" id="logout">
-                {% csrf_token %}
-                <input type="hidden">
-              </form>
-            </li>
-
+      <nav class="topnav" id="myTopnav">
+        <a href="{% url 'index' %}" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="{% url 'consumables' %}" class="nav-link">Menu</a>
+        <a href="#footer" class="nav-link">Contact</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </nav>
+      <ul class="logins">
+        {% if user.is_authenticated %}
+          <li
+          {% if 'dashboard' in request.path %}
+            class=""
           {% else %}
-            <li
-            {% if 'register' in request.path %}
-              class=""
-            {% else %}
-              class=""
-            {% endif %}>
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
-            </li>
+            class=""
+          {% endif %}>
+          <a class="nav-link" href="{% url 'dashboard' %}" data-nav-link> Welcome {{ user.username }} (Dashboard)</a>
+          </li>
 
-            <li
-            {% if 'login' in request.path %}
-              class=""
-            {% else %}
-              class=""
-            {% endif %}>
-              <a class="nav-link" href="{% url 'login' %}">Login</a>
-            </li>
-          {% endif %}  
-        </ul>
-      </div>
+          <li class="">
+            <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link" data-nav-link>
+              Logout</a>
+            <form action="{% url 'logout' %}" method="POST" id="logout">
+              {% csrf_token %}
+              <input type="hidden">
+            </form>
+          </li>
+
+        {% else %}
+          <li
+          {% if 'register' in request.path %}
+            class=""
+          {% else %}
+            class=""
+          {% endif %}>
+          <a class="nav-link" href="{% url 'register' %}" data-nav-link>Register</a>
+          </li>
+
+          <li
+          {% if 'login' in request.path %}
+            class=""
+          {% else %}
+            class=""
+          {% endif %}>
+            <a class="nav-link" href="{% url 'login' %}" data-nav-link>Login</a>
+          </li>
+        {% endif %}  
+      </ul>
     </div>
   </div>
   </div>
-</nav>
+</div>

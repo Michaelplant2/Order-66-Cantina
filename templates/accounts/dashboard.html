@@ -23,9 +23,12 @@ User Dashboard {% endblock %}
         <div class="fav-item">
           {% if favorites %}
             {% for favorite in favorites %}
-            <h4>Name:<a href="{% url 'consumable' favorite.consumable_id.id %}">{{ favorite.consumable_id.name }}</a></h4>
-            <p>${{ favorite.consumable.price }}</p>
-            <button>X</button>
+              <div>
+              <h4><a class="fav-a" href="{% url 'consumable' favorite.consumable_id.id %}">{{ favorite.consumable_id.name }}</a></h4>
+              <p>${{ favorite.consumable_id.price }}</p>
+              <a class="fav-a btn-x" href="/accounts/dashboard/delete/{{ favorite.consumable_id.id }}">X</a>
+              </div>
+              <hr>
             {% endfor %}
           {% else %}
             <p>You don't have any favorites</p>
