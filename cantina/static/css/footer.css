@@ -81,3 +81,13 @@
 .instagram {
    color: white;
 }
+
+/* Media Queries */
+
+@media (max-width: 450px) {
+   .col-1,
+   .col-2,
+   .col-3 {
+      border-right: none;
+   }
+}
