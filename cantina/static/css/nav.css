@@ -21,6 +21,7 @@
 .navbar {
    display: flex;
    justify-content: space-between;
+   flex-wrap: wrap;
 }
 
 .logo {
@@ -34,18 +35,30 @@
    gap: 20px;
 }
 
+.navbar div {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 10px;
+}
+
+.navbar.center {
+   justify-content: center;
+}
+
 .topnav {
    overflow: hidden;
 }
 
 .topnav a {
-   float: left;
+   float: right;
    display: block;
-   color: #f2f2f2;
+   color: papayawhip;
    text-align: center;
    padding: 12px 10px;
    text-decoration: none;
-   font-size: 17px;
+   font-size: 18px;
+   font-weight: 600;
 }
  
 .topnav .icon {
@@ -64,8 +77,11 @@
 
 /* Media Queries */
 
-@media (min-width: 850px) {
-
+@media (max-width: 545px) {
+   .navbar {
+      justify-content: center;
+      text-align: center;
+   }
 }
 
 @media (max-width: 850px) {
@@ -73,19 +89,16 @@
       display: none;
    }
    .topnav a.icon {
-      float: right;
       display: block;
    }
    .topnav.responsive {
       position: relative;
    }
    .topnav.responsive a.icon {
-     position: absolute;
      right: 0;
      top: 0;
    }
    .topnav.responsive a {
-     float: none;
      display: block;
      text-align: left;
    }
